@@ -2,6 +2,10 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
   workflowData: [],
+  activeIdWorkflow: {
+    id: '',
+    name: ''
+  }
 };
 
 const setWorkflow = (state, action) => {
@@ -9,6 +13,25 @@ const setWorkflow = (state, action) => {
     ...state,
     workflowData: [...state.workflowData, action.payload],
   };
+}
+const deleteWorkflow = (state, action) => {
+  const updatedRecords = state.workflowData.map((items) => {
+    const filteredData = items.data.data.filter(
+      (innerRecords) => innerRecords.id !== action.payload.data.data[0][0].deletedItem.id
+    );
+    return { data: { data: filteredData } };
+  });
+
+  return {
+    ...state,
+    workflowData: updatedRecords,
+  };
+};
+const loadWorkflow = (state, action) => {
+  return {
+    ...state,
+    activeIdWorkflow: {id: action.payload.data.data[0].id, name: action.payload.data.data[0].name}
+  }
 }
 // export const fetchToDoListFromSlice = createAsyncThunk(
 //     "todo/fetchList",
@@ -31,6 +54,12 @@ const workflowReducer = createSlice({
     reducers: {
       registerSetWorkflow(state, action) {
         return setWorkflow(state, action)
+      },
+      deleteSetWorkflow(state, action) {
+        return deleteWorkflow(state, action)
+      },
+      loadActiveWorkflow(state, action) {
+        return loadWorkflow(state, action)
       }
     },
     // extraReducers: (builder) => {
@@ -41,4 +70,4 @@ const workflowReducer = createSlice({
   })
 
 export default workflowReducer.reducer
-export const { registerSetWorkflow } = workflowReducer.actions
+export const { registerSetWorkflow, deleteSetWorkflow, loadActiveWorkflow } = workflowReducer.actions

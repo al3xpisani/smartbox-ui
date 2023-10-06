@@ -65,7 +65,6 @@ const MainListItemsContainer = () => {
         toast.success("Default workflow created with success")
         dispatch(registerSetWorkflow(serializabledItems))
     }
-
     return (
         <MainListItems handleOnCreateDiagram={handleOnCreateDiagram} />
     )

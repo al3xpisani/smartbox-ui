@@ -16,12 +16,6 @@ export const MainListItems = ({handleOnCreateDiagram}:{handleOnCreateDiagram: ()
       </ListItemIcon>
       <ListItemText primary="New diagram" onClick={handleOnCreateDiagram} />
     </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <List />
-      </ListItemIcon>
-      <ListItemText primary="List diagrams" />
-    </ListItemButton>
   </>
   )
 } 

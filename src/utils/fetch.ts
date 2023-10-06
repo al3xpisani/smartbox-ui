@@ -14,6 +14,19 @@ const fetchDiagram = async(settings: any, token: string) => {
   return axios.request<ApiResponse> (instance)
 }
 
+const fetchDiagramById = async(settings: any, token: string, id: React.Key | null | undefined) => {
+  const { BASE_URL: baseURL, HTTP_LIST_DIAGRAM: httpPath } = settings
+  const instance =  {
+    method: 'GET',
+    url: baseURL.concat(`${httpPath}`).concat(id),
+    headers: {
+      'Authorization': 'Bearer '.concat(token),
+      'Content-Type': 'application/json',
+    },
+  }
+  return axios.request<ApiResponse> (instance)
+}
+
 const createDiagram = async(settings: any, token: string, newDiagram: object) => {
   const { BASE_URL: baseURL, HTTP_LIST_DIAGRAM: httpPath } = settings
   const instance =  {
@@ -97,4 +110,4 @@ const deleteDiagram = async(settings: any, token: string,id: React.Key | null | 
   return axios.request<ApiResponse> (instance)
 }
 
-export { fetchDiagram, createDiagram, updateDiagram, deleteDiagram }
+export { fetchDiagram, createDiagram, updateDiagram, deleteDiagram, fetchDiagramById }

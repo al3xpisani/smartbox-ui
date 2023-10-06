@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from "./Title"
 import CustomizedMenuContainer from "../../container/CustomizedMenuContainer";
-import { ApiResponse, workflowState } from "../../types";
+import { ApiResponse } from "../../types";
 
 export default function ListExistingDiagrams({savedDiagrams}: {savedDiagrams: ApiResponse[] | undefined}) {
   return (
