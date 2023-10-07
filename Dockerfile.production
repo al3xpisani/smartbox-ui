@@ -2,7 +2,7 @@ FROM node:18-alpine as builder
 ENV BASE_URL localhost:8080
 WORKDIR /usr/src/app
 COPY ./package.json ./
-RUN npm install --prod --force
+RUN npm install --prod --legacy-peer-deps
 RUN npm add webpack-cli
 COPY . .
 RUN npm run build
