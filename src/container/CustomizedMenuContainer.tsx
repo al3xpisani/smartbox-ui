@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { serializableItems } from "../utils/serializableItems";
 import { deleteSetWorkflow, loadActiveWorkflow } from "../redux/slices/workflows/workflows.slice";
 import { applyAnimationEffect } from "../utils/animateDiv"
+import { useEffect } from "react"
 
 export default function CustomizedMenus({
     id
@@ -68,6 +69,10 @@ export default function CustomizedMenus({
         setAnchorEl(null)
         applyAnimationEffect("listedDiagramsGrid", "animate")
     }
+
+    useEffect(() => {
+        return () => {}
+    }, [])
 
     return (
         <CustomizedMenu
