@@ -9,14 +9,17 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 
 export const MainListItems = ({handleOnCreateDiagram}:{handleOnCreateDiagram: ()=>void}) => {
   return (
-  <>
-    <ListItemButton>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="New diagram" onClick={handleOnCreateDiagram} />
-    </ListItemButton>
-  </>
+      <>
+          <ListItemButton>
+              <ListItemIcon>
+                  <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText
+                  primary="New diagram"
+                  onClick={handleOnCreateDiagram}
+              />
+          </ListItemButton>
+      </>
   )
 } 
 

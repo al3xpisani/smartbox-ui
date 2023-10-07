@@ -52,36 +52,35 @@ const StyledMenu = styled((props: MenuProps) => (
 
 export default function CustomizedMenus({anchorEl, open, handleClick, handleLoad, handleDelete}: {anchorEl: HTMLElement | null, open: boolean, handleClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void, handleLoad: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void, handleDelete: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void }) {
     return (
-      <div>
-      <Button
-        id="demo-customized-button"
-        aria-controls={open ? 'demo-customized-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        variant="contained"
-        disableElevation
-        onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon />}
-      >
-      </Button>
-      <StyledMenu
-        id="demo-customized-menu"
-        MenuListProps={{
-          'aria-labelledby': 'demo-customized-button',
-        }}
-        anchorEl={anchorEl}
-        open={open}
-      >
-        <MenuItem onClick={handleLoad} disableRipple>
-          <EditIcon />
-          Load
-        </MenuItem>
-        <Divider sx={{ my: 0.5 }} />
-        <MenuItem onClick={handleDelete} disableRipple>
-          <ArchiveIcon />
-          Delete
-        </MenuItem>
-      </StyledMenu>
-    </div>
-  );
+        <div>
+            <Button
+                id="demo-customized-button"
+                aria-controls={open ? "demo-customized-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                variant="contained"
+                disableElevation
+                onClick={handleClick}
+                endIcon={<KeyboardArrowDownIcon />}
+            ></Button>
+            <StyledMenu
+                id="demo-customized-menu"
+                MenuListProps={{
+                    "aria-labelledby": "demo-customized-button"
+                }}
+                anchorEl={anchorEl}
+                open={open}
+            >
+                <MenuItem onClick={handleLoad} disableRipple>
+                    <EditIcon />
+                    Load
+                </MenuItem>
+                <Divider sx={{ my: 0.5 }} />
+                <MenuItem onClick={handleDelete} disableRipple>
+                    <ArchiveIcon />
+                    Delete
+                </MenuItem>
+            </StyledMenu>
+        </div>
+    )
 }

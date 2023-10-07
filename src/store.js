@@ -6,9 +6,9 @@ import workflowReducer from './redux/slices/workflows/workflows.slice'
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
 
 const getDefaultMiddleware = (getDefaultMiddleware) =>
-getDefaultMiddleware({
-  serializableCheck: false,
-})
+    getDefaultMiddleware({
+        serializableCheck: false
+    })
 
 export const store = configureStore({
     reducer: {

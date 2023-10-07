@@ -8,31 +8,37 @@ interface WorkflowItem {
 }
 
 interface LinkDataItem {
-  from: number;
-  to: number;
+    from: number
+    to: number
+}  
+
+export interface workflowState {
+    workflow: {
+        workflowData: any
+    }
+}
+
+export type activeIdWorkflowType = {
+    workflow: any
+    id: string
+    name: ReactNode
 }
 
 export interface ApiResponse {
-  id: Key | null | undefined;
-  creation: ReactNode;
-  name: ReactNode;
-  status: string;
-  isAuthenticated: {
-    isAuthenticated: boolean
-  };
-  data: {
-    id: string | Key | null | undefined;
-    creation: string;
-    body: {
-      workflow: WorkflowItem[];
-      linkDataArray: LinkDataItem[];
-    };
-    name: string;
-  }[];
-}
-
-export interface workflowState {
-  workflow: {
-    workflowData: any
-  }
+    id: Key | null | undefined
+    creation: ReactNode
+    name: ReactNode
+    status: string
+    isAuthenticated: {
+        isAuthenticated: boolean
+    }
+    data: {
+        id: string | Key | null | undefined
+        creation: string
+        body: {
+            workflow: WorkflowItem[]
+            linkDataArray: LinkDataItem[]
+        }
+        name: string
+    }[]
 }

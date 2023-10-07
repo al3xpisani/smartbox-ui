@@ -16,19 +16,27 @@ const ListExistingDiagramsContainer = () => {
     const workflowData = useSelector((state: workflowState): ApiResponse[] => state.workflow.workflowData);
     const dispatch = useDispatch();
 
-    useEffect(()=>{
-        fetchDiagram({BASE_URL: process.env.BASE_URL,HTTP_LIST_DIAGRAM: process.env.HTTP_LIST_DIAGRAM}, String(process.env.token))
-        .then((response: AxiosResponse<ApiResponse>)=>{
-            const isValidToken = isAuth(response)
-            setIsAuthenticated(isValidToken)
-            if(!isValidToken) {
-                toast.error("Invalid token. Please refresh it")
-            }else{
-                const serializabledItems = serializableItems(["config", "headers", "request"], response)
-                dispatch(registerSetWorkflow(serializabledItems))
-            }
-        })
-    },[])
+ useEffect(() => {
+     fetchDiagram(
+         {
+             BASE_URL: process.env.BASE_URL,
+             HTTP_LIST_DIAGRAM: process.env.HTTP_LIST_DIAGRAM
+         },
+         String(process.env.token)
+     ).then((response: AxiosResponse<ApiResponse>) => {
+         const isValidToken = isAuth(response)
+         setIsAuthenticated(isValidToken)
+         if (!isValidToken) {
+             toast.error("Invalid token. Please refresh it")
+         } else {
+             const serializabledItems = serializableItems(
+                 ["config", "headers", "request"],
+                 response
+             )
+             dispatch(registerSetWorkflow(serializabledItems))
+         }
+     })
+ }, [])
     return (
         <>
         { isAuthenticated && workflowData && <ListExistingDiagrams savedDiagrams={workflowData} />}

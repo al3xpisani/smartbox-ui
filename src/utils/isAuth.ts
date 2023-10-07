@@ -4,7 +4,7 @@ import { ApiResponse } from "../types"
 export const isAuth = (response: AxiosResponse<ApiResponse>) => {
   const { status } = response ?? {}
   const { data } = response || {};
-  const isAuthenticated = data?.isAuthenticated?.isAuthenticated;
+  const isAuthenticated = data?.isAuthenticated?.isAuthenticated  
 
   if(isAuthenticated !== undefined && !isAuthenticated){
     return isAuthenticated

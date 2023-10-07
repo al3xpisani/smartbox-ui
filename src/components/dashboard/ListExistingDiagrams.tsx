@@ -8,10 +8,12 @@ import TableRow from '@mui/material/TableRow';
 import Title from "./Title"
 import CustomizedMenuContainer from "../../container/CustomizedMenuContainer";
 import { ApiResponse } from "../../types";
+import Grid from "@mui/material/Grid";
 
 export default function ListExistingDiagrams({savedDiagrams}: {savedDiagrams: ApiResponse[] | undefined}) {
   return (
     <>
+      <Grid id="listedDiagramsGrid" >
       <Title>Recent Diagrams</Title>
       <Table size="small">
         <TableHead>
@@ -38,6 +40,7 @@ export default function ListExistingDiagrams({savedDiagrams}: {savedDiagrams: Ap
       <Link color="primary" href="#" sx={{ mt: 3 }}>
         See more saved diagrams
       </Link>
+    </Grid>
     </>
   );
 }

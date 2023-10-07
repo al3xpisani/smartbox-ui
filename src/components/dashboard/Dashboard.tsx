@@ -1,4 +1,4 @@
-import React,{ useEffect } from "react"
+import React from "react"
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
@@ -16,16 +16,12 @@ import Paper from '@mui/material/Paper';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { MainListItems } from "./listVerticalMenuitems";
-import { SecondaryListItems } from "./listVerticalMenuitems"
-import ListExistingDiagrams from "./ListExistingDiagrams";
-import WorkFlow from "./WorkFlow";
 import { Copyright } from "../copyright/Copyright";
-import { AxiosResponse } from "axios";
-import { ApiResponse } from "../../types";
-import MainListItemsContainer from "../../container/ListVerticalMenuitemContainer";
 import { Toastify } from "../../utils/toastify";
 import ListExistingDiagramsContainer from "../../container/ListExistingDiagramsContainer";
+import { SecondaryListItems } from "./listVerticalMenuitems";
+import MainListItemsContainer from "../../container/ListVerticalMenuitemContainer";
+import { WorkflowContainer } from "../../container/WorkflowContainer";
 const drawerWidth: number = 240;
 
 interface AppBarProps extends MuiAppBarProps {
@@ -165,7 +161,7 @@ export function Dashboard({productName, productVersion, toggleDrawer, open}: {pr
                   height: 640,
                 }}
               >
-                <WorkFlow />
+                <WorkflowContainer />
               </Paper>
             </Grid>
           </Grid>

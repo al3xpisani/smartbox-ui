@@ -1,6 +1,6 @@
 .animate{
   animation-name: anime;
-  animation-duration: 3s;
+  animation-duration: 2s;
 }
 @keyframes anime {
   from {opacity: 0;}

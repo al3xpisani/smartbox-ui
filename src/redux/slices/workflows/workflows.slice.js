@@ -10,9 +10,9 @@ const initialState = {
 
 const setWorkflow = (state, action) => {
   return {
-    ...state,
-    workflowData: [...state.workflowData, action.payload],
-  };
+      ...state,
+      workflowData: [...state.workflowData, action.payload]
+  }
 }
 const deleteWorkflow = (state, action) => {
   const updatedRecords = state.workflowData.map((items) => {
