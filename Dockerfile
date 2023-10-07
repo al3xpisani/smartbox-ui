@@ -1,4 +1,4 @@
-FROM node:17.6-alpine as builder
+FROM node:18-alpine as builder
 ENV BASE_URL localhost:8080
 WORKDIR /usr/src/app
 COPY ./package.json ./
