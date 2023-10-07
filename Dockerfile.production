@@ -2,7 +2,7 @@ FROM node:18-alpine as builder
 ENV BASE_URL localhost:8080
 WORKDIR /usr/src/app
 COPY ./package.json ./
-RUN yarn install --prod
+RUN yarn install --prod --force
 RUN yarn add webpack-cli
 COPY . .
 RUN yarn build
