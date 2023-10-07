@@ -23,6 +23,11 @@ pipelines:
                 IMAGE_NAME: 'smart-box'
             - pipe: atlassian/aws-ecs-deploy:1.6.2
               variables:
+                BASE_URL: $BASE_URL
+                HTTP_LIST_DIAGRAM: $HTTP_LIST_DIAGRAM
+                PRODUCT_NAME: $PRODUCT_NAME
+                PRODUCT_VER: $PRODUCT_VER
+                token: $token
                 AWS_ACCESS_KEY_ID: $SQUAD_BOX_AWS_ACCESS_KEY_ID_STAGING
                 AWS_SECRET_ACCESS_KEY: $SQUAD_BOX_AWS_SECRET_ACCESS_KEY_STAGING
                 AWS_DEFAULT_REGION: 'us-east-1'
@@ -50,6 +55,11 @@ pipelines:
                 IMAGE_NAME: 'smart-box'
             - pipe: atlassian/aws-ecs-deploy:1.6.2
               variables:
+                BASE_URL: $BASE_URL
+                HTTP_LIST_DIAGRAM: $HTTP_LIST_DIAGRAM
+                PRODUCT_NAME: $PRODUCT_NAME
+                PRODUCT_VER: $PRODUCT_VER
+                token: $token
                 AWS_ACCESS_KEY_ID: $SQUAD_BOX_AWS_ACCESS_KEY_ID_PROD
                 AWS_SECRET_ACCESS_KEY: $SQUAD_BOX_AWS_SECRET_ACCESS_KEY_PROD
                 AWS_DEFAULT_REGION: 'us-east-1'
