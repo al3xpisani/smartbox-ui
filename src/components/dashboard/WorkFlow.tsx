@@ -2,12 +2,13 @@ import * as React from 'react';
 import Grid from "@mui/material/Grid"
 import Title from "./Title"
 import Button from "@mui/material/Button"
+import { activeIdWorkflowType } from "../../types"
 
 export default function WorkFlow({
     activeWorkflow,
     handleUpdate
 }: {
-    activeWorkflow: any
+    activeWorkflow: activeIdWorkflowType
     handleUpdate: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
 }) {
     return (
