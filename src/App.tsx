@@ -1,16 +1,23 @@
-import React from 'react'
-import { Routes, Route, HashRouter } from 'react-router-dom'
+import React, { Suspense, lazy } from "react"
+import { Routes, Route, HashRouter } from "react-router-dom"
 import "./index.css"
-import DashboardContainer from "./container/DashboardContainer"
+import { Loading } from "./components/loading"
 
+const DashboardContainer = lazy(() =>
+    import("./container/DashboardContainer").then(({ DashboardContainer }) => ({
+        default: DashboardContainer
+    }))
+)
 const App = () => {
     return (
         <div id="AppRouting">
-            <HashRouter>
-                <Routes>
-                    <Route path="/" Component={DashboardContainer} />
-                </Routes>
-            </HashRouter>
+            <Suspense fallback={<Loading />}>
+                <HashRouter>
+                    <Routes>
+                        <Route path="/" Component={DashboardContainer} />
+                    </Routes>
+                </HashRouter>
+            </Suspense>
         </div>
     )
 }

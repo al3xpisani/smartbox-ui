@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { applyAnimationEffect } from "../utils/animateDiv"
 import { Dashboard } from "../components/dashboard"
 
-function DashboardContainer() {
+export const DashboardContainer = () => {
     const [open, setOpen] = React.useState(true)
     const toggleDrawer = () => {
         setOpen(!open)
@@ -22,4 +22,4 @@ function DashboardContainer() {
     )
 }
 
-export default DashboardContainer
+// export default DashboardContainer
