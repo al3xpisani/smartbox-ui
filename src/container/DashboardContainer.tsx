@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useLayoutEffect } from "react"
 import { applyAnimationEffect } from "../utils/animateDiv"
 import { Dashboard } from "../components/dashboard"
 
@@ -7,7 +7,7 @@ export const DashboardContainer = () => {
     const toggleDrawer = () => {
         setOpen(!open)
     }
-    useEffect(() => {
+    useLayoutEffect(() => {
         applyAnimationEffect("dashboard", "animate")
     }, [])
     const { PRODUCT_NAME: productname, PRODUCT_VER: productversion } =
