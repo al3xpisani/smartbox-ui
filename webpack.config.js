@@ -19,10 +19,11 @@ module.exports = (env, argv) => {
     return {
         entry: ["regenerator-runtime/runtime.js", "./src/index.js"],
         output: {
-            path: path.resolve(__dirname, "public"),
-            filename: "[name].[chunkhash:8].js",
-            sourceMapFilename: "[name].[chunkhash:8].map",
-            chunkFilename: "[id].[chunkhash:8].js"
+            path: path.resolve(__dirname, "api"),
+            filename: "server.js"
+            // filename: "[name].[chunkhash:8].js",
+            // sourceMapFilename: "[name].[chunkhash:8].map",
+            // chunkFilename: "[id].[chunkhash:8].js"
         },
         resolve: {
             modules: [path.join(__dirname, "src"), "node_modules"],
@@ -73,37 +74,37 @@ module.exports = (env, argv) => {
         resolve: {
             extensions: [".tsx", ".ts", ".js", ".sass", ".css"]
         },
-        optimization: {
-            splitChunks: {
-                chunks: "all",
-                minSize: 20000,
-                minRemainingSize: 0,
-                minChunks: 1,
-                maxAsyncRequests: 30,
-                maxInitialRequests: 30,
-                enforceSizeThreshold: 50000,
-                cacheGroups: {
-                    defaultVendors: {
-                        test: /[\\/]node_modules[\\/]/,
-                        priority: -10,
-                        reuseExistingChunk: true
-                    },
-                    default: {
-                        minChunks: 2,
-                        priority: -20,
-                        reuseExistingChunk: true
-                    },
-                    common: {
-                        name: "common",
-                        minChunks: 2,
-                        chunks: "async",
-                        priority: 10,
-                        reuseExistingChunk: true,
-                        enforce: true
-                    }
-                }
-            }
-        },
+        // optimization: {
+        //     splitChunks: {
+        //         chunks: "all",
+        //         minSize: 20000,
+        //         minRemainingSize: 0,
+        //         minChunks: 1,
+        //         maxAsyncRequests: 30,
+        //         maxInitialRequests: 30,
+        //         enforceSizeThreshold: 50000,
+        //         cacheGroups: {
+        //             defaultVendors: {
+        //                 test: /[\\/]node_modules[\\/]/,
+        //                 priority: -10,
+        //                 reuseExistingChunk: true
+        //             },
+        //             default: {
+        //                 minChunks: 2,
+        //                 priority: -20,
+        //                 reuseExistingChunk: true
+        //             },
+        //             common: {
+        //                 name: "common",
+        //                 minChunks: 2,
+        //                 chunks: "async",
+        //                 priority: 10,
+        //                 reuseExistingChunk: true,
+        //                 enforce: true
+        //             }
+        //         }
+        //     }
+        // },
         plugins: [
             new HtmlWebPackPlugin({
                 template: "./src/index.html"
