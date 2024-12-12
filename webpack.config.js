@@ -21,8 +21,7 @@ module.exports = (env, argv) => {
         entry: ["regenerator-runtime/runtime.js", "./src/index.js"],
         output: {
             path: path.resolve(__dirname, "api"),
-            filename: "server.js",
-            publicPath: path.resolve(__dirname, "api")
+            filename: "server.js"
             // filename: "[name].[chunkhash:8].js",
             // sourceMapFilename: "[name].[chunkhash:8].map",
             // chunkFilename: "[id].[chunkhash:8].js"
