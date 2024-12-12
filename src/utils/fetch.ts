@@ -3,6 +3,7 @@ import { ApiResponse } from "../types"
 
 const fetchDiagram = async(settings: any, token: string) => {
   const { BASE_URL: baseURL, HTTP_LIST_DIAGRAM: httpPath } = settings
+  console.log("..........fetc ", process.env.token)
   const instance =  {
     method: 'GET',
     url: baseURL.concat(`${httpPath}`),

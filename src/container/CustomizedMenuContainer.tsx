@@ -24,6 +24,7 @@ export default function CustomizedMenus({
     const handleLoad = async (
         event: React.MouseEvent<HTMLElement, MouseEvent>
     ) => {
+        console.log(".......... ", process.env.token)
         const loadResponse = await fetchDiagramById(
             {
                 BASE_URL: process.env.BASE_URL,
