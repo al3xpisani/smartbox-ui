@@ -11,6 +11,7 @@ const setEnv = (argv) => {
     } else if (argv.mode === "production") {
         setEnvMode = require("dotenv").config({ path: "./.env.production" })
     }
+    require("dotenv")
     return setEnvMode
 }
 
@@ -107,7 +108,7 @@ module.exports = (env, argv) => {
         // },
         plugins: [
             new HtmlWebPackPlugin({
-                template: "./src/index.html"
+                template: "./api/index.html"
             }),
             new webpack.DefinePlugin({
                 "process.env": JSON.stringify(process.env)
