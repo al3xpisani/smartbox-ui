@@ -112,8 +112,7 @@ module.exports = (env, argv) => {
                 template: "./src/index.html"
             }),
             new webpack.DefinePlugin({
-                "process.env": JSON.stringify(process.env),
-                self: "this"
+                "process.env": JSON.stringify(process.env)
             }),
             new webpack.NoEmitOnErrorsPlugin()
             // envBundleAnalyser.mode !== 'production' ? new BundleAnalyzerPlugin() : process.exit(0)
