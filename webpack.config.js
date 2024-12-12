@@ -11,7 +11,6 @@ const setEnv = (argv) => {
     } else if (argv.mode === "production") {
         setEnvMode = require("dotenv").config({ path: "./.env.production" })
     }
-    require("dotenv").config()
     return setEnvMode
 }
 
