@@ -28,7 +28,7 @@ module.exports = (env, argv) => {
             // chunkFilename: "[id].[chunkhash:8].js"
         },
         resolve: {
-            modules: [path.join(__dirname, "src"), "node_modules"],
+            modules: [path.join(__dirname, "api"), "node_modules"],
             extensions: ["*", ".js", ".jsx", ".tsx", ".ts", ".json"],
             symlinks: false,
             cacheWithContext: false,
