@@ -2,14 +2,8 @@
     "version": 2,
     "builds": [
         {
-            "src": "webpack.config.js",
+            "src": "api/*",
             "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/public/$1"
         }
     ]
 }

@@ -2,20 +2,20 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require("webpack")
 
+
 const setEnv = (argv) => {
-  let setEnvMode
-  if(argv.mode === 'development'){
-    setEnvMode = require('dotenv').config({ path: './.env.development' });
-  }else if(argv.mode === 'production'){
-    setEnvMode = require('dotenv').config({ path: './.env.production' });
-  }
-  return setEnvMode
+    let setEnvMode
+    if (argv.mode === "development") {
+        setEnvMode = require("dotenv").config({ path: "./.env.development" })
+    } else if (argv.mode === "production") {
+        setEnvMode = require("dotenv").config({ path: "./.env.production" })
+    }
+    return setEnvMode
 }
 
 module.exports = (env, argv) => {
-    const publicIndexPath = "./public/index.js"
     return {
-        entry: ["regenerator-runtime/runtime.js", publicIndexPath],
+        entry: ["regenerator-runtime/runtime.js", "./api/server.js"],
         output: {
             path: path.resolve(__dirname, "build"),
             filename: "[name].[chunkhash:8].js",
@@ -104,7 +104,7 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new HtmlWebPackPlugin({
-                template: publicIndexPath
+                template: "./api/server.html"
             }),
             new webpack.DefinePlugin({
                 "process.env": JSON.stringify(process.env)
