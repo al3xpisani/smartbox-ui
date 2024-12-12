@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require("webpack")
-
+const BundleAnalyzerPlugin =
+    require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 const setEnv = (argv) => {
     let setEnvMode
@@ -14,8 +15,9 @@ const setEnv = (argv) => {
 }
 
 module.exports = (env, argv) => {
+    const envBundleAnalyser = setEnv(argv)
     return {
-        entry: ["regenerator-runtime/runtime.js", "./api/server.js"],
+        entry: ["regenerator-runtime/runtime.js", "./src/index.js"],
         output: {
             path: path.resolve(__dirname, "api"),
             filename: "[name].[chunkhash:8].js",
@@ -104,7 +106,7 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new HtmlWebPackPlugin({
-                template: "./api/server.html"
+                template: "./src/index.html"
             }),
             new webpack.DefinePlugin({
                 "process.env": JSON.stringify(process.env)
