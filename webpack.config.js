@@ -22,13 +22,13 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, "api"),
             filename: "server.js",
-            publicPath: __dirname
+            publicPath: path.resolve(__dirname, "api")
             // filename: "[name].[chunkhash:8].js",
             // sourceMapFilename: "[name].[chunkhash:8].map",
             // chunkFilename: "[id].[chunkhash:8].js"
         },
         resolve: {
-            modules: [path.join(__dirname, "api"), "node_modules"],
+            modules: [path.join(__dirname, "src"), "node_modules"],
             extensions: ["*", ".js", ".jsx", ".tsx", ".ts", ".json"],
             symlinks: false,
             cacheWithContext: false,
