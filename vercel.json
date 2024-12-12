@@ -1,13 +1,13 @@
 {
     "functions": {
-        "public/index.html": {
+        "public/index.js": {
             "memory": 1024
         }
     },
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "public/index.html"
+            "destination": "public/index.js"
         }
     ]
 }
