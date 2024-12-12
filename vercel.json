@@ -1,9 +1,13 @@
 {
-    "version": 2,
-    "builds": [
+    "functions": {
+        "public/index.html": {
+            "memory": 1024
+        }
+    },
+    "rewrites": [
         {
-            "src": "public/*",
-            "use": "@vercel/node"
+            "source": "/(.*)",
+            "destination": "public/index.html"
         }
     ]
 }
