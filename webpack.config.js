@@ -108,7 +108,7 @@ module.exports = (env, argv) => {
         // },
         plugins: [
             new HtmlWebPackPlugin({
-                template: "./api/server.html"
+                template: "./api/index.html"
             }),
             new webpack.DefinePlugin({
                 "process.env": JSON.stringify(process.env)
